@@ -12,8 +12,6 @@ def main() -> None:
         "terminal.png", 16, 16, tcod.tileset.CHARMAP_TCOD
     )
 
-    event_handler = EventHandler()
-
     #init terminal window
     with tcod.context.new_terminal(
         screen_width,
@@ -23,7 +21,6 @@ def main() -> None:
         vsync = True
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order = "F")
-        while True:
 
 if __name__ == "__main__":
     main()
