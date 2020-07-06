@@ -32,15 +32,16 @@ def main() -> None:
         root_console = tcod.Console(screen_width, screen_height, order = "F")
         
         for event in tcod.event.wait():
-
             action = event_handler.dispatch(event)
+            
+            root_console.print(player.x, player.y, player.character, player.color)
+            context.present(root_console)
+            root_console.clear()
 
             if action is None:
-                continue
-            
+                continue           
             if isinstance(action, MovementAction):
-                player.move(xmove=action.xmove, ymove=action.xmove)
-            
+                player.move(xmove=action.xmove, ymove=action.xmove)         
             elif isinstance(action, EscapeAction):
                 raise SystemExit()
 
