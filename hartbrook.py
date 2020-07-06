@@ -30,20 +30,21 @@ def main() -> None:
         vsync = True
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order = "F")
-        
-        for event in tcod.event.wait():
-            action = event_handler.dispatch(event)
-            
+        while True: 
             root_console.print(player.x, player.y, player.character, player.color)
             context.present(root_console)
             root_console.clear()
 
-            if action is None:
-                continue           
-            if isinstance(action, MovementAction):
-                player.move(xmove=action.xmove, ymove=action.xmove)         
-            elif isinstance(action, EscapeAction):
-                raise SystemExit()
+            for event in tcod.event.wait():
+                action = event_handler.dispatch(event)
+
+
+                if action is None:
+                    continue           
+                if isinstance(action, MovementAction):
+                    player.move(dx=action.dx, dy=action.dy)         
+                elif isinstance(action, EscapeAction):
+                    raise SystemExit()
 
 if __name__ == "__main__":
     main()

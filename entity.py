@@ -13,6 +13,6 @@ class Entity:
         self.character = _character
         self.color = _color
     
-    def move(self, xmove:int, ymove:int):
-        self.x += xmove
-        self.y += ymove
+    def move(self, dx:int, dy:int):
+        self.x += dx
+        self.y += dy

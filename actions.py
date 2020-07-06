@@ -5,7 +5,7 @@ class EscapeAction(Action):
     pass
 
 class MovementAction(Action):
-    def __init__(self, _xmove:int, _ymove:int):
+    def __init__(self, dx:int, dy:int):
         super().__init__()
-        self.xmove = _xmove
-        self.ymove = _ymove
+        self.dx = dx
+        self.dy = dy
