@@ -2,16 +2,19 @@
 import tcod
 
 from entity import Entity
+from engine import Engine
+from gamemap import Map
 
 from typing import Tuple
 
-from engine import Engine
 from input_handlers import EventHandler
-
 
 def main() -> None:
     screen_width = 100
     screen_height = 80
+
+    mapwidth = 50
+    mapheight = 50
 
     #define tileset
     tileset = tcod.tileset.load_tilesheet(
@@ -20,11 +23,12 @@ def main() -> None:
 
     event_handler = EventHandler()
 
-    player = Entity(1, 1, "@", (0, 255, 213))
-    creature = Entity(5, 5, "W", (255, 0, 0))
-    entities = {player, creature}
+    player = Entity(35, 35, "@", (0, 255, 213))
+    creature = Entity(35, 15, "W", (255, 0, 0))
+    entities = {creature, player}
+    gamemap = Map(mapwidth, mapheight)
 
-    engine = Engine(entities = entities, event_handler = event_handler, player = player)
+    engine = Engine(entities = entities, event_handler = event_handler, gamemap = gamemap, player = player)
 
     #init terminal window
     with tcod.context.new_terminal(
@@ -37,9 +41,9 @@ def main() -> None:
         root_console = tcod.Console(screen_width, screen_height, order = "F")
         while True: 
 
-            engine.render(console = root_console)
+            engine.render(console = root_console, context = context)
             
-            events = tcod.event.Wait()
+            events = tcod.event.wait()
 
             engine.handle_events(events)
 
