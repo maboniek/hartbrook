@@ -13,8 +13,8 @@ def main() -> None:
     screen_width = 100
     screen_height = 80
 
-    mapwidth = 50
-    mapheight = 50
+    mapwidth = 100
+    mapheight = 80
 
     #define tileset
     tileset = tcod.tileset.load_tilesheet(
@@ -24,7 +24,7 @@ def main() -> None:
     event_handler = EventHandler()
 
     player = Entity(35, 35, "@", (0, 255, 213))
-    creature = Entity(35, 15, "W", (255, 0, 0))
+    creature = Entity(35, 15, "A", (255, 0, 0))
     entities = {creature, player}
     gamemap = Map(mapwidth, mapheight)
 
@@ -32,8 +32,8 @@ def main() -> None:
 
     #init terminal window
     with tcod.context.new_terminal(
-        screen_width,
-        screen_height,
+        150,
+        120,
         tileset = tileset,
         title = "Hartbrook",
         vsync = True
@@ -46,7 +46,6 @@ def main() -> None:
             events = tcod.event.wait()
 
             engine.handle_events(events)
-
 
 if __name__ == "__main__":
     main()
