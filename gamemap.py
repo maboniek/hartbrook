@@ -8,11 +8,6 @@ class Map:
         self.width = width
         self.height = height
         self.tiles = np.full((width, height), fill_value=tiletypes.floor, order = "F")
-        self.tiles[30:40, 10] = tiletypes.wall
-        self.tiles[30:40, 20] = tiletypes.wall
-        self.tiles[40, 10:21] = tiletypes.wall
-        self.tiles[30, 10:15] = tiletypes.wall
-        self.tiles[30, 16:20] = tiletypes.wall
 
     def within_border(self, x:int, y:int) -> bool:
         return 0 <= x < self.width and 0 <= y < self.height
