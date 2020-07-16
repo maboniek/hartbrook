@@ -13,7 +13,7 @@ class Engine:
         self.event_handler = event_handler
         self.player = player
         self.gamemap = gamemap
-        gamemap.load_map("hub.json")
+        gamemap.load_map("maps/hub.json")
 
     def handle_events(self, events: Iterable[Any]) -> None:
         for event in events:
