@@ -11,5 +11,5 @@ def gen_tile(*, can_walk:int, transparent:int, obscured:Tuple[int, Tuple[int, in
 
 
 grass = gen_tile(can_walk=True, transparent=True, obscured=(ord("\""), (130, 180, 0),(0, 0, 0)))
-floor = gen_tile(can_walk=True, transparent=True, obscured=(ord("-"), (0, 0, 0),(0, 0, 0)))
+floor = gen_tile(can_walk=True, transparent=True, obscured=(ord("="), (86, 57, 0),(0, 0, 0)))
 wall = gen_tile(can_walk=False, transparent=False, obscured=(ord("#"), (120, 120, 120),(0, 0, 0)))
