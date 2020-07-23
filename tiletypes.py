@@ -10,6 +10,6 @@ def gen_tile(*, can_walk:int, transparent:int, obscured:Tuple[int, Tuple[int, in
     return np.array((can_walk, transparent, obscured), dtype=tile_dtype)
 
 
-grass = gen_tile(can_walk=True, transparent=True, obscured=(ord(" "), (130, 180, 0),(130, 180, 0)))
-floor = gen_tile(can_walk=True, transparent=True, obscured=(ord(" "), (0, 0, 0),(0, 0, 0)))
-wall = gen_tile(can_walk=False, transparent=False, obscured=(ord(" "), (120, 120, 120),(120, 120, 120)))
+grass = gen_tile(can_walk=True, transparent=True, obscured=(ord("\""), (130, 180, 0),(0, 0, 0)))
+floor = gen_tile(can_walk=True, transparent=True, obscured=(ord("-"), (0, 0, 0),(0, 0, 0)))
+wall = gen_tile(can_walk=False, transparent=False, obscured=(ord("#"), (120, 120, 120),(0, 0, 0)))

@@ -26,4 +26,3 @@ class Map:
                     self.tiles[x, y] = tiletypes.grass
                 elif map_obj["mapgrid"][y][x] == map_obj["tile_id"]["wall"]:
                     self.tiles[x, y] = tiletypes.wall
-

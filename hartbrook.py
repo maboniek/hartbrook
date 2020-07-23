@@ -17,14 +17,14 @@ def main() -> None:
     mapheight = 80
 
     #define tileset
-    tileset = tcod.tileset.load_tilesheet(
-        "terminal.png", 16, 16, tcod.tileset.CHARMAP_TCOD
-    )
+    #tileset = tcod.tileset.load_tilesheet(
+    #    "terminal.png", 16, 16, tcod.tileset.CHARMAP_TCOD
+    #)
 
     event_handler = EventHandler()
 
     player = Entity(35, 35, "@", (0, 255, 213))
-    creature = Entity(35, 15, "A", (255, 0, 0))
+    creature = Entity(35, 15, "S", (255, 0, 0))
     entities = {creature, player}
     gamemap = Map(mapwidth, mapheight)
 
@@ -34,7 +34,7 @@ def main() -> None:
     with tcod.context.new_terminal(
         150,
         120,
-        tileset = tileset,
+        #tileset = tileset,
         title = "Hartbrook",
         vsync = True
     ) as context:
